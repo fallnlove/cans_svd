@@ -44,7 +44,7 @@ def bench_algo(
         jax.block_until_ready(out)
 
     times_ms: List[float] = []
-    n_tries = 100 if gen_fn.shape[0] <= 4096 else 10
+    n_tries = 100
     for _ in range(n_tries):
         key, subkey = jax.random.split(key)
         matrix = gen_fn(subkey)
